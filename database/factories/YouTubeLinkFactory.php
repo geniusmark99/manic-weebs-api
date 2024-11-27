@@ -1,0 +1,32 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\YouTubeLink>
+ */
+class YouTubeLinkFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+
+        $title = $this->faker->sentence;
+
+        return [
+            'url' => fake()->url(),
+            'title' => $title,
+            'embedId' => fake()->url(),
+            'slug' => Str::slug($title),
+            'description' => fake()->sentence()
+        ];
+    }
+}
